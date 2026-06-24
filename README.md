@@ -1,4 +1,4 @@
-# system-md
+# many brains
 
 Sistema estándar para organizar el contenido que generas en proyectos de Claude Cowork y Claude Code. Resuelve el problema de "voy generando documentos y se vuelve difícil mapear la información".
 
