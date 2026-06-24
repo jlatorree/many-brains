@@ -33,8 +33,9 @@ Este archivo es el **índice vivo** del proyecto: la vista **global** de qué es
 | `_design-system/`| Tokens, componentes, guías visuales del proyecto                    |
 | `_referencias/`  | Bibliografía y fuentes                                              |
 | `_historico/`    | Versiones congeladas (canónicos llevados a instancias externas)     |
+| `_decisiones/`   | Bitácora cronológica de decisiones de rumbo (`decisiones.md`)        |
 
-En la raíz, además: `manifest.md` (este índice) y `decisiones.md` (bitácora cronológica de decisiones de rumbo).
+En la raíz, solo `manifest.md` (este índice). El `CLAUDE.md` es andamiaje de arranque: en Cowork se vuelca a las instrucciones del proyecto y se borra (con tu permiso); en Code se conserva.
 
 **MODULARES (temáticas — nacen de las conversaciones):**
 

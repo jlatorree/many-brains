@@ -2,13 +2,15 @@
 
 Sistema estándar para organizar el contenido que generas en proyectos de Claude Cowork y Claude Code. Resuelve el problema de "voy generando documentos y es difícil mapear la información".
 
+> **Nota:** esta guía y el `README.md` son documentación explicativa, no piezas operativas. El sistema funciona solo con `CLAUDE.md` y `manifest.md`. Una vez configurado un proyecto nuevo, puedes **borrar ambos sin problema**.
+
 ## Las dos piezas
 
 El sistema son **tres archivos que trabajan juntos**:
 
 1. **`manifest.md`** — el mapa (el *presente*). Índice vivo de qué documento es la fuente de verdad de cada tema, qué deriva de qué, y en qué estado está todo. Lo lees tú para orientarte; lo lee el agente para no duplicar ni perderse.
 2. **La regla de mantenimiento** — el motor. Un bloque de instrucciones en el `CLAUDE.md` (Code) o en las instrucciones del proyecto (Cowork) que ordena al agente mantener todo vivo en cada sesión, sin que se lo pidas.
-3. **`decisiones.md`** — la bitácora (el *cómo llegamos aquí*). Registro cronológico append-only de las decisiones que cambiaron el rumbo, con fecha y porqué. El manifest dice qué hay ahora; `decisiones.md` cuenta la secuencia que llevó hasta ahí.
+3. **`_decisiones/decisiones.md`** — la bitácora (el *cómo llegamos aquí*). Registro cronológico append-only de las decisiones que cambiaron el rumbo, con fecha y porqué. Vive en la carpeta CORE `_decisiones/`. El manifest dice qué hay ahora; la bitácora cuenta la secuencia que llevó hasta ahí.
 
 Sin la pieza 2, el sistema se desactualiza apenas dejas de hacerlo a mano. Con ella, el mantenimiento es automático.
 
@@ -33,25 +35,27 @@ Cada canónico cierra con una sección `## Conexiones` en wikilinks (`[[...]]`) 
 
 ## Aplicarlo en un proyecto nuevo
 
-Este sistema es un **template repo**: traes la carpeta entera (`CLAUDE.md` + `manifest.md` esqueleto + `decisiones.md` + `docs/`) de una vez, sin copiar archivos sueltos. **No pre-crees carpetas**: el agente crea cada una cuando llega el primer archivo que va en ella.
-
-### En Claude Code
-
-1. Trae el template a la carpeta del proyecto nuevo: "Use this template" en GitHub, o clona el repo.
-2. Abre el proyecto en Claude Code. El `CLAUDE.md` se lee automáticamente.
-3. Reemplaza `[NOMBRE]` en `manifest.md`. Al empezar, el agente te preguntará qué cargar como contexto canónico (rutina de arranque). De ahí en adelante crea carpetas y mantiene el manifest solo.
+Este sistema es un **template repo**: traes la carpeta entera de una vez. El `CLAUDE.md` y el `README.md` son **andamiaje de arranque** que se retira tras sembrar el proyecto. Lo que queda permanente es el `manifest.md` (raíz) y las carpetas CORE (incluida `_decisiones/`). **No pre-crees carpetas**: el agente crea cada una cuando llega su primer archivo.
 
 ### En Claude Cowork
 
 1. Copia la carpeta del template como base de tu proyecto nuevo.
-2. Abre `CLAUDE.md`, copia todo su contenido y pégalo en las **instrucciones del proyecto** (panel derecho → Instructions). En Cowork esas instrucciones se editan desde la app; por debajo se guardan en un `claude.md` del proyecto.
-3. Reemplaza `[NOMBRE]` en `manifest.md`. Misma rutina de arranque y mantenimiento automático.
+2. El agente lee el `CLAUDE.md`, te confirma que cargó las reglas, y te guía a pegarlas en las **instrucciones del proyecto** (panel derecho → Instructions).
+3. Con tu permiso, borra el `CLAUDE.md` y el `README.md` (ya cumplieron). Te pregunta qué cargar como contexto canónico. La raíz queda limpia: solo `manifest.md` + carpetas CORE que van naciendo.
+
+### En Claude Code
+
+1. Trae el template: "Use this template" en GitHub, o clona el repo.
+2. Abre el proyecto en Claude Code. El `CLAUDE.md` se lee automáticamente **y se queda** (en Code es el mecanismo permanente, no se borra). El agente puede ofrecerte borrar solo el `README.md`.
+3. Reemplaza `[NOMBRE]` en `manifest.md`. El agente te pregunta qué cargar como contexto canónico y de ahí mantiene todo solo.
+
+> **Diferencia clave:** en Cowork las reglas viven en el panel de la app, así que el `CLAUDE.md` se borra tras volcarlas. En Code las reglas viven en el archivo, así que el `CLAUDE.md` se conserva. El agente nunca borra nada sin tu consentimiento.
 
 ## El flujo diario
 
 1. **Empiezas una sesión** → el agente lee el manifest y se orienta. (La primera vez en un proyecto, te pregunta qué cargar como contexto canónico.)
 2. **Conversas y algo cristaliza** → el agente te *propone* guardarlo como canónico en su módulo (operación *cristalizar*), con su sección `## Conexiones`. Tú decides; no se queda en el chat.
-3. **Tomas una decisión de rumbo** → el agente la registra en `decisiones.md` con fecha y porqué.
+3. **Tomas una decisión de rumbo** → el agente la registra en `_decisiones/decisiones.md` con fecha y porqué.
 4. **El agente actualiza el manifest** → fecha, versión, estado de derivados. Sin que lo pidas.
 5. **Pides un derivado** → "usa `[modulo]/[archivo].md` como fuente". El agente lee el canónico (y sus Conexiones), no inventa, y lo guarda en CORE.
 6. **De vez en cuando pides un *lint*** → el agente revisa la salud del proyecto: canónicos sin Conexiones, wikilinks rotos, derivados desactualizados, contradicciones.

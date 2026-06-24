@@ -4,14 +4,17 @@ Sistema estándar para organizar el contenido que generas en proyectos de Claude
 
 Este repo es una **plantilla**: lo clonas (o usas "Use this template" en GitHub) para arrancar cada proyecto nuevo con la estructura ya lista.
 
+> **Nota:** este `README.md` y `docs/guia-de-uso.md` son documentación explicativa, no piezas operativas. El sistema funciona solo con `CLAUDE.md` y `manifest.md`. Una vez que configures un proyecto nuevo, puedes **borrar ambos sin problema**.
+
 ## Qué incluye
 
 | Archivo | Rol |
 | ------- | --- |
-| `CLAUDE.md` | El motor. La regla que el agente lee cada sesión para mantener el sistema vivo solo. |
-| `manifest.md` | El mapa. Índice del proyecto (esqueleto vacío, listo para llenar). |
+| `CLAUDE.md` | El motor. La regla que el agente lee para mantener el sistema vivo. **Andamiaje**: en Cowork se vuelca a las instrucciones del proyecto y se borra (con tu permiso); en Code se conserva. |
+| `manifest.md` | El mapa. Índice del proyecto (esqueleto vacío, listo para llenar). Queda en la raíz. |
+| `README.md` | Esta portada. **Andamiaje**: se borra al sembrar el proyecto (con tu permiso). |
 | `docs/guia-de-uso.md` | La guía completa: cómo funciona el sistema y cómo aplicarlo. |
-| `decisiones.md` | Bitácora cronológica de decisiones de rumbo (se crea al registrar la primera). |
+| `_decisiones/decisiones.md` | Bitácora cronológica de decisiones de rumbo. Carpeta CORE. |
 
 ## Cómo usarlo
 

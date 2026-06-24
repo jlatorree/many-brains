@@ -4,13 +4,32 @@ Este proyecto usa un `manifest.md` en la raíz como índice vivo de todos los
 documentos. Es tu mapa: léelo al inicio de cada sesión para orientarte sobre
 qué archivo es la fuente de verdad de cada tema y qué deriva de qué.
 
-**Arranque (primera vez en el proyecto).** Si el `manifest.md` está vacío o no
-existe, antes de empezar pregúntale al usuario: "¿Hay alguna fuente, documento
-o información que deba cargar como contexto canónico en `_context/` antes de
-empezar?". Con su respuesta, siembra el proyecto. No crees carpetas vacías por
-adelantado: créalas solo cuando llegue el primer archivo que va en ellas. Si
-`decisiones.md` no existe, créalo vacío con un encabezado al registrar la
-primera decisión de rumbo.
+**Arranque (primera vez en el proyecto).** Este archivo es andamiaje de
+template: una vez que sus reglas están activas, sobra. Al iniciar un proyecto
+recién clonado del template, ejecuta esta secuencia:
+
+1. Lee e internaliza estas reglas.
+2. **Limpieza del andamiaje, con consentimiento:**
+   - **Primero, identifica el entorno.** Si no estás completamente seguro de si
+     corres en Cowork o en Code, PREGÚNTALE al usuario antes de hacer nada
+     ("¿Estás usando Cowork o Claude Code?"). No asumas.
+   - Si estás en **Cowork**: confirma al usuario que ya cargaste las reglas y
+     pídele que las pegue (o que confirme que las pegó) en las instrucciones del
+     proyecto. Luego pide permiso explícito para borrar el andamiaje y la
+     documentación explicativa: `CLAUDE.md`, `README.md` y `docs/guia-de-uso.md`.
+     Solo bórralos si el usuario lo autoriza.
+   - Si estás en **Code**: NO borres este `CLAUDE.md` — aquí es el mecanismo
+     permanente que lees cada sesión. Sí puedes ofrecer borrar la documentación
+     explicativa (`README.md` y `docs/guia-de-uso.md`), con consentimiento.
+   - Nunca borres nada sin confirmación explícita del usuario.
+3. Pregúntale: "¿Hay alguna fuente, documento o información que deba cargar como
+   contexto canónico en `_context/` antes de empezar?". Con su respuesta, siembra
+   el proyecto.
+
+No crees carpetas vacías por adelantado: créalas solo cuando llegue el primer
+archivo que va en ellas. Las decisiones de rumbo se registran en
+`_decisiones/decisiones.md` (crea la carpeta y el archivo al registrar la
+primera).
 
 El flujo del proyecto es generativo: las conversaciones cristalizan en
 canónicos temáticos (carpetas modulares), y esos canónicos son las fuentes con
@@ -55,7 +74,9 @@ cinco consignas:
 
 - **Registrar decisión.** Cuando se tome una decisión que cambia el rumbo del
   proyecto (un pivote, un cambio de premisa, descartar un enfoque), añade una
-  entrada al final de `decisiones.md` con el formato `## [YYYY-MM-DD] Título` y
+  entrada al final de `_decisiones/decisiones.md` (crea la carpeta CORE
+  `_decisiones/` y el archivo si no existen) con el formato `## [YYYY-MM-DD]
+  Título` y
   un párrafo breve con el QUÉ y el PORQUÉ. Es append-only: no edites entradas
   pasadas. Registra solo decisiones de rumbo, no operaciones mecánicas (crear un
   derivado o actualizar una fecha NO van aquí).
@@ -79,8 +100,8 @@ cinco consignas:
 - No pre-crees carpetas vacías. Crea cada carpeta (CORE o modular) solo cuando
   llegue el primer archivo que va en ella.
 - Carpetas CORE base (piso mínimo, no renombrar): `_context/`, `_keynote/`,
-  `_design-system/`, `_referencias/`, `_historico/`. Las CORE son transversales
-  (sirven a todo el proyecto, no a un tema).
+  `_design-system/`, `_referencias/`, `_historico/`, `_decisiones/`. Las CORE
+  son transversales (sirven a todo el proyecto, no a un tema).
 - Las CORE son extensibles: si aparece una necesidad transversal que no encaja
   en las existentes (ej. `_assets/`, `_templates/`), propón crear una nueva CORE
   con prefijo `_` y regístrala en la tabla de estructura del manifest.
