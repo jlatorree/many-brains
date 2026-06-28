@@ -2,7 +2,7 @@
 
 Sistema estándar para organizar el contenido que generas en proyectos de Claude Cowork y Claude Code. Resuelve el problema de "voy generando documentos y es difícil mapear la información".
 
-> **Nota:** esta guía y el `README.md` son documentación explicativa, no piezas operativas. El sistema funciona solo con `CLAUDE.md` y `manifest.md`. Una vez configurado un proyecto nuevo, puedes **borrar ambos sin problema**.
+> **Nota:** esta guía y el `README.md` son documentación del *skill* para entender el método; no se copian a tus proyectos. Dentro de un proyecto, el sistema funciona con dos cosas: el `manifest.md` y la regla de mantenimiento (en el `CLAUDE.md` del proyecto si usas Code, o en las instrucciones del proyecto si usas Cowork).
 
 ## Las dos piezas
 
@@ -33,23 +33,20 @@ Las carpetas:
 
 Cada canónico cierra con una sección `## Conexiones` en wikilinks (`[[...]]`) que dice de qué depende y qué alimenta. No es para un grafo bonito: es **navegación para el agente** — al abrir un archivo ve qué más leer — y la base del *lint*. Como ya usas Obsidian, el grafo aparece gratis; pero los `[[...]]` son texto plano, así que el sistema no queda atado a ningún plugin.
 
-## Aplicarlo en un proyecto nuevo
+## Aplicarlo en un proyecto
 
-Este sistema es un **template repo**: traes la carpeta entera de una vez. El `CLAUDE.md` y el `README.md` son **andamiaje de arranque** que se retira tras sembrar el proyecto. Lo que queda permanente es el `manifest.md` (raíz) y las carpetas CORE (incluida `_decisiones/`). **No pre-crees carpetas**: el agente crea cada una cuando llega su primer archivo.
+Ya no traes una carpeta: **invocas el skill**. Una vez instalado (ver `README.md`), *Many Brains* detecta en qué estado está tu proyecto y actúa en consecuencia, sin pre-crear carpetas (cada una nace cuando llega su primer archivo):
 
-### En Claude Cowork
+- **Proyecto vacío → Sembrar.** Crea el `manifest.md` y te pregunta qué cargar como contexto canónico.
+- **Proyecto con contenido, sin Many Brains → Adoptar.** Lee todo lo que existe, te explica el método, propone una estructura en árbol y reordena **solo con tu aprobación, sin borrar nada**.
+- **Proyecto que ya usa Many Brains → Reconciliar.** Ajusta los desfases del `manifest.md` y, si lo pides, corre el *lint*.
 
-1. Copia la carpeta del template como base de tu proyecto nuevo.
-2. El agente lee el `CLAUDE.md`, te confirma que cargó las reglas, y te guía a pegarlas en las **instrucciones del proyecto** (panel derecho → Instructions).
-3. Con tu permiso, borra el `CLAUDE.md` y el `README.md` (ya cumplieron). Te pregunta qué cargar como contexto canónico. La raíz queda limpia: solo `manifest.md` + carpetas CORE que van naciendo.
+Al cerrar, el skill instala la **regla de mantenimiento** a nivel de proyecto para que el `manifest.md` se mantenga vivo solo en cada sesión futura:
 
-### En Claude Code
+- **En Claude Code:** crea o actualiza el `CLAUDE.md` del proyecto (en Code el archivo es el mecanismo permanente, se queda).
+- **En Claude Cowork:** te entrega el texto para pegarlo en las instrucciones del proyecto (panel → Instructions), porque la app no lo escribe por ti.
 
-1. Trae el template: "Use this template" en GitHub, o clona el repo.
-2. Abre el proyecto en Claude Code. El `CLAUDE.md` se lee automáticamente **y se queda** (en Code es el mecanismo permanente, no se borra). El agente puede ofrecerte borrar solo el `README.md`.
-3. Reemplaza `[NOMBRE]` en `manifest.md`. El agente te pregunta qué cargar como contexto canónico y de ahí mantiene todo solo.
-
-> **Diferencia clave:** en Cowork las reglas viven en el panel de la app, así que el `CLAUDE.md` se borra tras volcarlas. En Code las reglas viven en el archivo, así que el `CLAUDE.md` se conserva. El agente nunca borra nada sin tu consentimiento.
+> **Diferencia clave:** en Code la regla vive en el archivo `CLAUDE.md`; en Cowork vive en el panel de la app. En ambos casos el skill **nunca borra nada sin tu consentimiento**.
 
 ## El flujo diario
 

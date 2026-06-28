@@ -1,37 +1,51 @@
-# many brains
+# Many Brains
 
-Sistema estándar para organizar el contenido que generas en proyectos de Claude Cowork y Claude Code. Resuelve el problema de "voy generando documentos y se vuelve difícil mapear la información".
+Skill para organizar y mantener un proyecto bajo el método **Many Brains**: en vez
+de acumular archivos sueltos, cultivas un "cerebro" por proyecto con fuentes
+canónicas, derivados que citan su fuente, y un `manifest.md` que actúa como mapa.
+Resuelve el problema de "voy generando documentos y se vuelve difícil mapear la
+información".
 
-Este repo es una **plantilla**: lo clonas (o usas "Use this template" en GitHub) para arrancar cada proyecto nuevo con la estructura ya lista.
+A diferencia de un template (que solo sirve para arrancar un proyecto vacío), este
+skill también **adopta un proyecto que ya viene avanzando**: lee lo que existe,
+propone una estructura y la ordena —sin borrar nada y solo con tu aprobación.
 
-> **Nota:** este `README.md` y `docs/guia-de-uso.md` son documentación explicativa, no piezas operativas. El sistema funciona solo con `CLAUDE.md` y `manifest.md`. Una vez que configures un proyecto nuevo, puedes **borrar ambos sin problema**.
+## Los tres modos
+
+El skill detecta el estado del proyecto y actúa según corresponda:
+
+| Estado | Modo | Qué hace |
+| --- | --- | --- |
+| Proyecto vacío | **Sembrar** | Crea el `manifest.md` y deja todo listo. |
+| Proyecto con contenido, sin Many Brains | **Adoptar** | Lee todo, propone una estructura en árbol y reordena solo con tu OK. |
+| Proyecto que ya usa Many Brains | **Reconciliar** | Ajusta desfases del manifest y corre el *lint*. |
 
 ## Qué incluye
 
 | Archivo | Rol |
 | ------- | --- |
-| `CLAUDE.md` | El motor. La regla que el agente lee para mantener el sistema vivo. **Andamiaje**: en Cowork se vuelca a las instrucciones del proyecto y se borra (con tu permiso); en Code se conserva. |
-| `manifest.md` | El mapa. Índice del proyecto (esqueleto vacío, listo para llenar). Queda en la raíz. |
-| `README.md` | Esta portada. **Andamiaje**: se borra al sembrar el proyecto (con tu permiso). |
-| `docs/guia-de-uso.md` | La guía completa: cómo funciona el sistema y cómo aplicarlo. |
-| `_decisiones/decisiones.md` | Bitácora cronológica de decisiones de rumbo. Carpeta CORE. |
+| `SKILL.md` | El skill. Detección de modo, flujo plan-first y handoff. |
+| `references/tutorial.md` | El resumen del sistema que el agente le explica al usuario antes de ordenar. |
+| `references/clasificacion.md` | Las señales para decidir qué es cada archivo. |
+| `assets/manifest.template.md` | Esqueleto del `manifest.md` que se siembra en el proyecto. |
+| `assets/instrucciones-para-claude.md` | La regla permanente que mantiene el sistema vivo (se instala en el handoff). |
+| `docs/guia-de-uso.md` | La guía conceptual completa del método. |
 
-## Cómo usarlo
+## Cómo se instala el mantenimiento (handoff)
 
-### En Claude Code
+Al terminar de ordenar, el skill deja el proyecto autosostenido instalando la regla
+de `assets/instrucciones-para-claude.md` **a nivel de proyecto** (no global):
 
-1. Clona el template (o "Use this template" en GitHub) en la carpeta de tu proyecto nuevo.
-2. Abre el proyecto en Claude Code. El `CLAUDE.md` se lee automáticamente.
-3. Al empezar, el agente te preguntará qué cargar como contexto canónico. De ahí en adelante crea carpetas y mantiene el `manifest.md` solo.
-
-### En Claude Cowork
-
-1. Copia esta carpeta como base de tu proyecto nuevo en Cowork.
-2. Abre `CLAUDE.md`, copia todo su contenido y pégalo en las **instrucciones del proyecto** (panel derecho → Instructions). En Cowork las instrucciones se editan desde la app; por debajo se guardan en un `claude.md` del proyecto.
-3. Listo. Misma rutina de arranque y mantenimiento automático.
+- **En Claude Code:** crea o actualiza el `CLAUDE.md` del proyecto.
+- **En Claude Cowork:** te entrega el texto para que lo pegues en Settings del
+  proyecto → Instructions (la app no permite escribirlo automáticamente).
 
 ## La idea en una línea
 
-Las conversaciones cristalizan en **canónicos** (tus fuentes, en carpetas temáticas) → los combinas para generar **derivados** (presentaciones, informes, en carpetas CORE) → el agente mantiene el `manifest.md` y las conexiones al día, sin que se lo pidas.
+Las conversaciones cristalizan en **canónicos** (tus fuentes, en carpetas
+temáticas) → los combinas para generar **derivados** (presentaciones, informes, en
+carpetas CORE) → el agente mantiene el `manifest.md` y las conexiones al día, sin
+que se lo pidas.
 
-Inspirado en el MANIFEST.md de David Paluy y el patrón LLM Wiki de Andrej Karpathy, adaptado a un flujo generativo. Ver `docs/guia-de-uso.md`.
+Inspirado en el MANIFEST.md de David Paluy y el patrón LLM Wiki de Andrej Karpathy,
+adaptado a un flujo generativo. Ver `docs/guia-de-uso.md`.

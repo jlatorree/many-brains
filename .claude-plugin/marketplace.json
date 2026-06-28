@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "jlatorree",
+  "owner": {
+    "name": "Jonathan L."
+  },
+  "plugins": [
+    {
+      "name": "many-brains",
+      "source": ".",
+      "description": "Organiza y mantiene proyectos con el método Many Brains: un manifest.md como mapa, fuentes canónicas y derivados que citan su fuente. Detecta si sembrar, adoptar o reconciliar, y reordena solo con tu aprobación, sin borrar nada.",
+      "category": "productivity",
+      "tags": ["many-brains", "organización", "conocimiento", "manifest", "documentación"]
+    }
+  ]
+}

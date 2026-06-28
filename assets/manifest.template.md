@@ -35,7 +35,7 @@ Este archivo es el **índice vivo** del proyecto: la vista **global** de qué es
 | `_historico/`    | Versiones congeladas (canónicos llevados a instancias externas)     |
 | `_decisiones/`   | Bitácora cronológica de decisiones de rumbo (`decisiones.md`)        |
 
-En la raíz, solo `manifest.md` (este índice). El `CLAUDE.md` es andamiaje de arranque: en Cowork se vuelca a las instrucciones del proyecto y se borra (con tu permiso); en Code se conserva.
+En la raíz, solo `manifest.md` (este índice). La regla de mantenimiento la instala el skill Many Brains en el handoff: en Cowork se pega en las instrucciones del proyecto; en Code vive en el `CLAUDE.md` del proyecto.
 
 **MODULARES (temáticas — nacen de las conversaciones):**
 
