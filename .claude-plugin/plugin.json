@@ -1,9 +1,9 @@
 {
   "name": "many-brains",
-  "description": "Instala y mantiene el método Many Brains en un proyecto: fuentes canónicas en carpetas modulares, derivados que citan su fuente y un manifest.md como mapa. La IA es bibliotecario: ordena y propone, nunca borra, decide el humano. Detecta el estado (sembrar / adoptar / reconciliar) y reordena solo con aprobación.",
+  "description": "Instala y mantiene el método Many Brains en un proyecto: nodes en carpetas modulares, derivados que citan su fuente y un hub.md como mapa. La IA es bibliotecario: ordena y propone, nunca borra, decide el humano. Detecta el estado (sembrar / adoptar / reconciliar) y reordena solo con aprobación.",
   "author": {
     "name": "Jonathan L."
   },
   "license": "MIT",
-  "keywords": ["many-brains", "organización", "conocimiento", "manifest", "documentación", "obsidian"]
+  "keywords": ["many-brains", "organización", "conocimiento", "hub", "documentación", "obsidian"]
 }

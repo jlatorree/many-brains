@@ -14,11 +14,11 @@ proyecto, con sus propias fuentes y su propio mapa.
 
 ## Cómo queda organizado el proyecto
 
-- **Fuentes canónicas** (carpetas con nombre de tema): un solo archivo es la
+- **Nodes** (carpetas con nombre de tema): un solo archivo es la
   *verdad* de cada tema. Nada se duplica.
 - **Derivados** (carpetas CORE con prefijo `_`, como `_entregables/`): presentaciones,
   informes y resúmenes que se *generan a partir de* las fuentes y las citan.
-- **`manifest.md`**: el mapa en la raíz. De un vistazo se ve qué hay, qué está
+- **`hub.md`**: el mapa en la raíz. De un vistazo se ve qué hay, qué está
   vigente y qué deriva de qué.
 
 ## El trato (importante decírselo)
@@ -32,5 +32,5 @@ proyecto, con sus propias fuentes y su propio mapa.
 ## Frase de cierre que puedes usar
 
 "Voy a leer lo que ya tienes y te voy a proponer una estructura: tus fuentes por
-tema, los documentos derivados aparte, y un mapa (`manifest.md`) que conecta todo.
+tema, los documentos derivados aparte, y un mapa (`hub.md`) que conecta todo.
 No borro ni muevo nada sin tu OK. ¿Le damos una mirada?"

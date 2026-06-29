@@ -1,8 +1,8 @@
 ---
 name: many-brains
 description: >-
-  Organiza y mantiene un proyecto bajo el sistema Many Brains: un manifest vivo,
-  carpetas CORE/modulares, fuentes canónicas y derivados que citan su fuente.
+  Organiza y mantiene un proyecto bajo el sistema Many Brains: un hub vivo,
+  carpetas CORE/modulares, nodes y derivados que citan su fuente.
   Detecta el estado del proyecto y actúa en consecuencia: siembra uno vacío,
   ADOPTA uno que ya tiene contenido (lo lee todo, propone una estructura en árbol
   y reordena solo con la aprobación del usuario, sin borrar nada), o reconcilia
@@ -14,8 +14,8 @@ description: >-
 # Many Brains
 
 Este skill instala y mantiene el método **Many Brains** en un proyecto: en vez de
-acumular archivos sueltos, se cultiva un "cerebro" por proyecto con fuentes
-canónicas, derivados que citan su fuente, y un `manifest.md` que actúa como mapa.
+acumular archivos sueltos, se cultiva un "cerebro" por proyecto con nodes,
+derivados que citan su fuente, y un `hub.md` que actúa como mapa.
 Tu rol al usarlo es el de **bibliotecario, no autor**: ordenas y propones, pero la
 curaduría y las decisiones son del usuario. **Nunca borras nada.**
 
@@ -23,11 +23,11 @@ curaduría y las decisiones son del usuario. **Nunca borras nada.**
 
 El sistema se apoya en tres ideas que debes conocer antes de tocar nada:
 
-- **Canónicos**: archivos `.md` que son la *única fuente de verdad* de un tema.
+- **Nodes**: archivos `.md` que son la *única fuente de verdad* de un tema.
   Viven en carpetas **modulares** (nombre del tema, sin prefijo).
 - **Derivados**: presentaciones, informes, resúmenes generados *a partir de*
-  canónicos. Viven en carpetas **CORE** (con prefijo `_`) y citan su fuente.
-- **Manifest**: `manifest.md` en la raíz, el índice vivo de qué hay y qué deriva
+  nodes. Viven en carpetas **CORE** (con prefijo `_`) y citan su fuente.
+- **Hub**: `hub.md` en la raíz, el índice vivo de qué hay y qué deriva
   de qué.
 
 Archivos que trae este skill (léelos cuando los necesites, no todos de golpe):
@@ -36,7 +36,7 @@ Archivos que trae este skill (léelos cuando los necesites, no todos de golpe):
   **Léelo siempre antes de proponer u ordenar.**
 - `references/clasificacion.md` — las señales para decidir qué es cada archivo.
   Léelo al entrar en modo Adoptar.
-- `assets/manifest.template.md` — el esqueleto del `manifest.md` a crear.
+- `assets/hub.template.md` — el esqueleto del `hub.md` a crear.
 - `assets/instrucciones-para-claude.md` — las reglas permanentes que el proyecto necesita para
   mantenerse vivo. Es lo que instalas en el handoff.
 
@@ -46,7 +46,7 @@ Mira la raíz del proyecto e identifica en cuál de los tres estados estás:
 
 | Estado | Modo | Ir a |
 | --- | --- | --- |
-| Hay un `manifest.md` estructurado en la raíz | **Reconciliar** | sección "Modo Reconciliar" |
+| Hay un `hub.md` estructurado en la raíz | **Reconciliar** | sección "Modo Reconciliar" |
 | Casi sin contenido (solo config/ruido) | **Sembrar** | sección "Modo Sembrar" |
 | Hay contenido real, pero no Many Brains | **Adoptar** | sección "Modo Adoptar" |
 
@@ -92,7 +92,7 @@ Garantía central: **no borras nada y no mueves nada hasta que el usuario aprueb
    quede vacía: no es un buzón de descarte, es la excepción.
 6. **Ejecuta (solo con OK).** Mueve los archivos a su destino (mover, no copiar,
    para no dejar duplicados). Crea las carpetas a medida que las necesitas (no
-   pre-crees vacías). Crea `manifest.md` a partir de `assets/manifest.template.md`
+   pre-crees vacías). Crea `hub.md` a partir de `assets/hub.template.md`
    y llena sus tablas con lo recién ordenado.
 7. **Handoff.** Ve a la sección "Handoff del mantenimiento".
 
@@ -102,7 +102,7 @@ Garantía central: **no borras nada y no mueves nada hasta que el usuario aprueb
 > excepción y díselo.
 
 > **La adopción solo reubica, no modifica contenido.** Al mover un archivo a su
-> carpeta no cambias lo que hay dentro. Los canónicos llevan `## Conexiones` y los
+> carpeta no cambias lo que hay dentro. Los nodes llevan `## Conexiones` y los
 > derivados una cita "Basado en…", pero **no se las agregues durante la
 > adopción**: mover no es momento de editar. Propón añadirlas como un paso aparte y
 > opcional, *después* de ordenar, archivo por archivo y con el OK del usuario.
@@ -113,28 +113,28 @@ Para un proyecto vacío o casi vacío:
 
 1. **Explica el sistema** (tutorial breve, como en la sección anterior).
 2. Pregunta: "¿Hay alguna fuente, documento o información que deba cargar como
-   contexto canónico en `_context/` antes de empezar?".
-3. Crea `manifest.md` desde `assets/manifest.template.md` (reemplaza `[NOMBRE]`).
+   contexto en `_context/` antes de empezar?".
+3. Crea `hub.md` desde `assets/hub.template.md` (reemplaza `[NOMBRE]`).
 4. No pre-crees carpetas: nacen cuando llega su primer archivo.
 5. **Handoff** del mantenimiento.
 
 ## Modo Reconciliar
 
-El proyecto ya usa Many Brains (hay `manifest.md`). No re-siembres.
+El proyecto ya usa Many Brains (hay `hub.md`). No re-siembres.
 
-- Compara el `manifest.md` con la realidad de las carpetas y corrige desfases
+- Compara el `hub.md` con la realidad de las carpetas y corrige desfases
   (filas que faltan, rutas movidas, fechas). Avisa qué reconciliaste.
-- Corre el **lint** si el usuario lo pide: canónicos sin sección `## Conexiones`,
+- Corre el **lint** si el usuario lo pide: nodes sin sección `## Conexiones`,
   wikilinks `[[...]]` rotos, derivados marcados `requiere refresh` hace tiempo,
-  contradicciones entre canónicos, conceptos repetidos que merecerían su propio
-  canónico. **Propón** correcciones; no las apliques sin confirmar.
+  contradicciones entre nodes, conceptos repetidos que merecerían su propio
+  node. **Propón** correcciones; no las apliques sin confirmar.
 
 ## Handoff del mantenimiento (cierre de Sembrar y Adoptar)
 
-El objetivo es dejar el proyecto **autosostenido**: que el `manifest.md` se
+El objetivo es dejar el proyecto **autosostenido**: que el `hub.md` se
 mantenga vivo en cada sesión futura sin que el usuario lo pida. El mecanismo es la
 regla permanente de `assets/instrucciones-para-claude.md`, y **va siempre a nivel de proyecto**
-(no a las instrucciones globales — esa regla habla de `manifest.md` y carpetas que
+(no a las instrucciones globales — esa regla habla de `hub.md` y carpetas que
 otros proyectos no tienen).
 
 - **En Cowork:** no puedes escribir el panel de instrucciones (es UI de la app).
@@ -154,5 +154,5 @@ Si no sabes en qué entorno estás, pregúntalo antes de hacer el handoff.
   existentes es un paso aparte, propuesto y opcional.
 - **`_por-clasificar/` es último recurso, no buzón.** Reporta lo que cae ahí.
 - **`_historico/` solo por orden explícita del usuario.**
-- **Idempotente.** Si te corren de nuevo, detectas el `manifest.md` y reconcilias;
+- **Idempotente.** Si te corren de nuevo, detectas el `hub.md` y reconcilias;
   no re-siembras ni duplicas.

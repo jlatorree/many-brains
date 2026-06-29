@@ -3,7 +3,7 @@
 Esta es tu guía para proponer un destino por archivo. Son **señales, no reglas
 rígidas**: usa criterio y, en la duda, propón tu mejor hipótesis y márcala "(confianza baja)" en el plan (el usuario
 corrige el plan antes de que se ejecute). El principio rector: **un archivo es
-*canónico* si es una fuente de verdad sobre un tema; es *derivado* si se generó a
+*node* si es una fuente de verdad sobre un tema; es *derivado* si se generó a
 partir de otra cosa para presentarla o resumirla.**
 
 ## La pregunta clave: ¿fuente o representación?
@@ -12,18 +12,18 @@ Antes de mirar la extensión, pregúntate: *¿este archivo es donde vive el
 conocimiento original, o es una versión hecha para mostrar/entregar algo que ya
 existe en otro lado?*
 
-- Donde vive el conocimiento → **canónico** (carpeta modular del tema).
+- Donde vive el conocimiento → **node** (carpeta modular del tema).
 - Una versión para mostrar/entregar → **derivado** (carpeta CORE).
 
 La extensión ayuda pero no manda: un `.html` suele ser derivado, pero un `.md`
-largo de notas crudas es canónico aunque esté desordenado.
+largo de notas crudas es node aunque esté desordenado.
 
 ## Tabla de señales
 
 | Lo que ves en el archivo | Rol | Destino propuesto |
 | --- | --- | --- |
 | Visión, propósito, misión, conceptos clave, "filosofía", glosario del proyecto | Contexto | `_context/` |
-| `.md` con sustancia sobre **un tema** (investigación, segmentos, propuesta, notas de trabajo, análisis) | Canónico | carpeta **modular** con nombre del tema |
+| `.md` con sustancia sobre **un tema** (investigación, segmentos, propuesta, notas de trabajo, análisis) | Node | carpeta **modular** con nombre del tema |
 | `.pptx` / `.html` / `.docx` / PDF generado por ti / resumen / one-pager / pitch | Derivado | `_entregables/` en subcarpeta por tipo (`keynotes/`, `informes/`, `prototipos/`…) |
 | Tokens, paleta, tipografía, guías o componentes visuales | Design system | `_design-system/` |
 | Bibliografía, papers de terceros, PDFs externos, enlaces fuente, capturas de referencia | Referencia | `_referencias/` |
@@ -44,13 +44,13 @@ Una carpeta modular agrupa **un tema**, con nombre descriptivo y sin prefijo
 
 ## Distinciones que suelen confundirse
 
-- **Contexto vs. canónico temático.** `_context/` es para lo *transversal* a todo
+- **Contexto vs. node temático.** `_context/` es para lo *transversal* a todo
   el proyecto (visión, propósito, conceptos). Un tema específico (un segmento, un
-  hallazgo) es canónico modular, no contexto.
-- **Referencia vs. canónico.** Una referencia es material *de terceros* que
-  consultas (un informe de mercado ajeno). Un canónico es conocimiento *del
+  hallazgo) es node modular, no contexto.
+- **Referencia vs. node.** Una referencia es material *de terceros* que
+  consultas (un informe de mercado ajeno). Un node es conocimiento *del
   proyecto*, aunque cite fuentes externas.
-- **Derivado vs. canónico.** Si el archivo dice "basado en…", o claramente resume/
+- **Derivado vs. node.** Si el archivo dice "basado en…", o claramente resume/
   presenta algo, es derivado. Si dudas, mira si su contenido existe ya en otro
   archivo más completo: si sí, este es el derivado.
 

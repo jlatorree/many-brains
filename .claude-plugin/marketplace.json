@@ -8,9 +8,9 @@
     {
       "name": "many-brains",
       "source": ".",
-      "description": "Organiza y mantiene proyectos con el método Many Brains: un manifest.md como mapa, fuentes canónicas y derivados que citan su fuente. Detecta si sembrar, adoptar o reconciliar, y reordena solo con tu aprobación, sin borrar nada.",
+      "description": "Organiza y mantiene proyectos con el método Many Brains: un hub.md como mapa, nodes y derivados que citan su fuente. Detecta si sembrar, adoptar o reconciliar, y reordena solo con tu aprobación, sin borrar nada.",
       "category": "productivity",
-      "tags": ["many-brains", "organización", "conocimiento", "manifest", "documentación"]
+      "tags": ["many-brains", "organización", "conocimiento", "hub", "documentación"]
     }
   ]
 }
