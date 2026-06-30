@@ -12,6 +12,10 @@ propone una estructura y la ordena —sin borrar nada y solo con tu aprobación.
 
 ## Instalación
 
+> **Nota:** este repo es un **plugin de Claude Code** y está pensado para usarse en
+> Code. Claude Cowork no admite plugins: los usuarios de Cowork usan la **edición
+> derivada de un solo archivo** (ver abajo), pegándola en las Instructions del proyecto.
+
 **Claude Code — como plugin** (recomendado: se auto-actualiza):
 
 ```sh
@@ -25,9 +29,10 @@ propone una estructura y la ordena —sin borrar nada y solo con tu aprobación.
 git clone https://github.com/jlatorree/many-brains.git ~/.claude/skills/many-brains
 ```
 
-**Claude Cowork:** no se instala desde GitHub. Usa la edición autocontenida de un
-solo archivo (`many-brains-cowork.md`) y pégala en Settings del proyecto →
-Instructions (ver "Cómo se instala el mantenimiento" más abajo).
+**Claude Cowork:** no se instala desde GitHub (Cowork no admite plugins). Usa la
+edición derivada de un solo archivo
+[`cowork/many-brains-cowork.md`](cowork/many-brains-cowork.md) y pégala en Settings
+del proyecto → Instructions (ver "Cómo se instala el mantenimiento" más abajo).
 
 ## Los tres modos
 

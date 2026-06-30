@@ -1,5 +1,6 @@
 {
   "name": "many-brains",
+  "version": "1.0.0",
   "description": "Instala y mantiene el método Many Brains en un proyecto: nodes planos en _nodes/, outputs que citan su fuente y un _hub.md como mapa. La IA es bibliotecario: ordena y propone, nunca borra, decide el humano. Detecta el estado (sembrar / adoptar / reconciliar) y reordena solo con aprobación.",
   "author": {
     "name": "Jonathan L."
